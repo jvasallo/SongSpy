@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  occupation: MyString
+  birth_date: 2013-02-16 14:10:41
+  label_id: 1
+
+two:
+  name: MyString
+  occupation: MyString
+  birth_date: 2013-02-16 14:10:41
+  label_id: 1

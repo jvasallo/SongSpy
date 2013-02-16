@@ -1,4 +1,22 @@
 Nxtbt::Application.routes.draw do
+  resources :producers
+
+
+  resources :songs
+
+
+  resources :genres
+
+
+  resources :labels
+
+
+  resources :artists
+
+
+  resources :albums
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

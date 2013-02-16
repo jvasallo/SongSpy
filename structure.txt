@@ -1,0 +1,6 @@
+rails g scaffold Album name:string length:integer release_date:datetime artist_id:integer label_id:integer rating:float
+rails g scaffold Artist name:string occupation:string birth_date:datetime label_id:integer
+rails g scaffold Label name:string founder:string founded_date:datetime location:string
+rails g scaffold Genre name:string description:text
+rails g scaffold Song name:string rating:float length:integer lyrics:text album_id:integer genre_id:integer
+rails g scaffold Producer name:string history:text

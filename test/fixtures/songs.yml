@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  rating: 1.5
+  length: 1
+  lyrics: MyText
+  album_id: 1
+  genre_id: 1
+
+two:
+  name: MyString
+  rating: 1.5
+  length: 1
+  lyrics: MyText
+  album_id: 1
+  genre_id: 1

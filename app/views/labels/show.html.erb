@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @label.name %>
+</p>
+
+<p>
+  <b>Founder:</b>
+  <%= @label.founder %>
+</p>
+
+<p>
+  <b>Founded date:</b>
+  <%= @label.founded_date %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @label.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_label_path(@label) %> |
+<%= link_to 'Back', labels_path %>
