@@ -24,12 +24,12 @@
     <%= f.datetime_select :release_date %>
   </div>
   <div class="field">
-    <%= f.label :artist_id %><br />
-    <%= f.number_field :artist_id %>
+    <%= f.label :label_id %><br />
+    <%= collection_select(:album,:label_id, @labels,:id,:name) %>
   </div>
   <div class="field">
-    <%= f.label :label_id %><br />
-    <%= f.number_field :label_id %>
+    <%= f.label :artist_id %><br />
+    <%= collection_select(:album,:artist_id, @artists,:id,:name) %>
   </div>
   <div class="actions">
     <%= f.submit %>
