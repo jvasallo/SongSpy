@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  founder: MyString
+  name: G.O.O.D. Music
+  founder: Kanye West
   founded_date: 2013-02-16 14:13:24
-  location: MyString
+  location: Chicago
 
 two:
-  name: MyString
-  founder: MyString
+  name: Rocafella Records
+  founder: Jay Z
   founded_date: 2013-02-16 14:13:24
-  location: MyString
+  location: New York
