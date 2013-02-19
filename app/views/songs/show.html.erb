@@ -22,14 +22,15 @@
 
 <p>
   <b>Album:</b>
-  <%= Album.find(@song.album_id).name %>
+  <%= link_to @song.album.name, @song.album %>
 </p>
 
 <p>
   <b>Genre:</b>
-  <%= Genre.find(@song.genre_id).name %>
+  <%= link_to @song.genre.name, @song.genre %>
 </p>
 
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Destroy', @song, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', songs_path %>

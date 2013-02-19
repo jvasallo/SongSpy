@@ -28,6 +28,10 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def top
+    @albums = Album.top_five_albums
+  end
+
   # GET /albums/new
   # GET /albums/new.json
   def new

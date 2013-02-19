@@ -1,0 +1,19 @@
+<center>
+<h1>Top Songs on Song Spy</h1>
+
+<table cellpadding="10">
+  <tr>
+    <th>Album Name</th>
+    <th>Artist</th>
+    <th>Rating</th>
+  </tr>
+
+<% @albums.each do |album| %>
+  <tr align="right">
+    <td><%= album.name %></td>
+    <td><%= album.artist.name %></td>
+    <td><%= album.rating %></td>
+  </tr>
+<% end %>
+</table>
+</center>
