@@ -17,19 +17,23 @@
   </div>
   <div class="field">
     <%= f.label :length %><br />
-    <%= f.number_field :length %>
+    Approx. <%= f.number_field :length %> Minutes
   </div>
   <div class="field">
     <%= f.label :release_date %><br />
     <%= f.datetime_select :release_date %>
   </div>
   <div class="field">
-    <%= f.label :label_id %><br />
-    <%= collection_select(:album,:label_id, @labels,:id,:name) %>
+    <%= f.label :artist_id %><br />
+    <%= f.collection_select :artist_id, @artists, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :artist_id %><br />
-    <%= collection_select(:album,:artist_id, @artists,:id,:name) %>
+    <%= f.label :label_id %><br />
+    <%= f.collection_select :label_id, @labels, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br />
+    <%= f.text_field :rating %>
   </div>
   <div class="actions">
     <%= f.submit %>

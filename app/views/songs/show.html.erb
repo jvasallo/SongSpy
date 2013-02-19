@@ -22,12 +22,12 @@
 
 <p>
   <b>Album:</b>
-  <%= @song.album_id %>
+  <%= Album.find(@song.album_id).name %>
 </p>
 
 <p>
   <b>Genre:</b>
-  <%= @song.genre_id %>
+  <%= Genre.find(@song.genre_id).name %>
 </p>
 
 

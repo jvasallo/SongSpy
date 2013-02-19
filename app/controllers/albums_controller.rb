@@ -21,6 +21,13 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search_text]
+      match_term = "%" + params[:search_text] + "%"
+      @albums = Album.where("name like ?", match_term)
+    end
+  end
+
   # GET /albums/new
   # GET /albums/new.json
   def new
@@ -32,6 +39,34 @@ class AlbumsController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @album }
     end
+  end
+  
+  def add_song_to
+    album = Album.find(params[:album_id])
+    song = Song.new()
+    song.name = params[:name]
+    song.save()
+    album.songs << song
+    
+    redirect_to album
+  end
+
+  def add_genre_to
+    genre = Genre.find(params[:genre_id])
+    album = Album.find(params[:album_id])
+
+    album.genres << genre
+    
+    redirect_to album    
+  end
+
+  def add_producer_to
+    producer = Producer.find(params[:producer_id])
+    album = Album.find(params[:album_id])
+    
+    album.producers << producer
+    
+    redirect_to album
   end
 
   # GET /albums/1/edit

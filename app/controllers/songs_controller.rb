@@ -21,6 +21,17 @@ class SongsController < ApplicationController
     end
   end
 
+  def search
+    if params[:search_text]
+      match_term = "%" + params[:search_text] + "%"
+      @songs = Song.where("lyrics like ?", match_term)
+    end
+  end
+
+  def top
+    @songs = Song.top_songs
+  end
+
   # GET /songs/new
   # GET /songs/new.json
   def new

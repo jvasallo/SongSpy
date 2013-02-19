@@ -3,4 +3,7 @@ class Genre < ActiveRecord::Base
 
   has_many :songs
   has_and_belongs_to_many :albums
+
+  validates_presence_of :name, :description,
+      :message => "must be filled!"
 end

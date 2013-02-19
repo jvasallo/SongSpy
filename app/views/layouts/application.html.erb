@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Nxtbt</title>
+  <title>.:.:Song Spy:.:.</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<p>
+<%= link_to 'Home', search_albums_path %> |
+<%= link_to 'Top 5 Albums', top_albums_path %> |
+<%= link_to 'Top Songs', top_songs_path %> |
+<%= link_to 'Find This Song!', search_songs_path %> |
+<%= link_to 'Browse Albums', albums_path %> | 
+<%= link_to 'Browse Songs', songs_path %> 
+</p>
+<br />
 
 <%= yield %>
 
