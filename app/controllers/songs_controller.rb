@@ -25,6 +25,9 @@ class SongsController < ApplicationController
   # GET /songs/new.json
   def new
     @song = Song.new
+    @albums = Album.all
+    @genres = Genre.all
+    @artists = Artist.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +38,9 @@ class SongsController < ApplicationController
   # GET /songs/1/edit
   def edit
     @song = Song.find(params[:id])
+    @albums = Album.all
+    @genres = Genre.all
+    @artists = Artist.all
   end
 
   # POST /songs

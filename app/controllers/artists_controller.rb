@@ -25,6 +25,7 @@ class ArtistsController < ApplicationController
   # GET /artists/new.json
   def new
     @artist = Artist.new
+    @labels = Label.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class ArtistsController < ApplicationController
   # GET /artists/1/edit
   def edit
     @artist = Artist.find(params[:id])
+    @labels = Label.all
   end
 
   # POST /artists
