@@ -26,8 +26,8 @@ class Album < ActiveRecord::Base
 
   # Display the top songs in our system
   def self.top_five_albums
-    Song.all(:order => "rating DESC",
-             :limit => 5)
+    Album.all(:order => "rating DESC",
+              :limit => 5)
   end
         
 end

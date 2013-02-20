@@ -14,9 +14,9 @@ class Song < ActiveRecord::Base
 
   # Making sure songs are stored in minutes
   def check_song_length
-    if self.length < 10 then
+    if self.length > 10 then
       self.errors.add(:length, "is longer than 10 minutes...Calm down Free Bird.")
-    elsif self.length > 1 then
+    elsif self.length < 1 then
       self.errors.add(:length, "is shorter than 1 minute...C'MON MAN!")
     end
   end
