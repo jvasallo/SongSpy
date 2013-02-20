@@ -7,7 +7,7 @@ one:
   label: G.O.O.D. Music
 
 two:
-  name: MyString
-  occupation: MyString
+  name: Jack White
+  occupation: Rocker
   birth_date: 2013-02-16 14:10:41
-  label_id: 1
+  label: Third Man Records

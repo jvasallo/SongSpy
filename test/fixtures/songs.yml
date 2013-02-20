@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  rating: 1.5
-  length: 1
-  lyrics: MyText
-  album_id: 1
-  genre_id: 1
+  name: Sixteen Saltines
+  rating: 5.0
+  length: 4
+  lyrics: Blah Blah Blah
+  album: Blunderbuss
+  genre: Rock
 
 two:
-  name: MyString
-  rating: 1.5
-  length: 1
-  lyrics: MyText
-  album_id: 1
-  genre_id: 1
+  name: Dark Fantasy
+  rating: 4.8
+  length: 5
+  lyrics: Blah Blah Blah
+  album: My Beautiful Dark Twisted Fantasy
+  genre: Rap
