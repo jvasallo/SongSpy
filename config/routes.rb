@@ -19,6 +19,11 @@ Nxtbt::Application.routes.draw do
       get 'top'
       get 'search'
     end
+    member do
+      post 'add_genre_to'
+      post 'add_producer_to'
+      post 'add_song_to'
+    end
   end
 
   # The priority is based upon order of creation:
@@ -70,7 +75,7 @@ Nxtbt::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'albums#search'
+  root :to => 'songs#search'
 
   # See how all your routes lay out with "rake routes"
 
