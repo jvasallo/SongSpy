@@ -16,4 +16,13 @@ class GenreTest < ActiveSupport::TestCase
       assert genre.songs.length > 0
   end
 
+
+  test "Adding a genre to an album" do
+      genre = Genre.find_by_name("Folk Rock")
+
+      album = Album.find_by_name("Blunderbuss")
+      genre.albums << album
+
+      assert genre.albums.length > 0
+  end
 end
