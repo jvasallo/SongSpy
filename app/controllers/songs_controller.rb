@@ -75,6 +75,9 @@ class SongsController < ApplicationController
   # PUT /songs/1.json
   def update
     @song = Song.find(params[:id])
+    @artists = Artist.all
+    @albums = Album.all
+    @genres = Genre.all
 
     respond_to do |format|
       if @song.update_attributes(params[:song])

@@ -101,6 +101,8 @@ class AlbumsController < ApplicationController
   # PUT /albums/1.json
   def update
     @album = Album.find(params[:id])
+    @artists = Artist.all
+    @labels = Label.all
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
