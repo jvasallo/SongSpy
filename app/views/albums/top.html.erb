@@ -1,5 +1,5 @@
 <center>
-<h1>Top Songs on Song Spy</h1>
+<h1>Top 5 Albums on Song Spy</h1>
 
 <table cellpadding="10">
   <tr>
@@ -10,8 +10,8 @@
 
 <% @albums.each do |album| %>
   <tr align="right">
-    <td><%= album.name %></td>
-    <td><%= album.artist.name %></td>
+    <td><%= link_to album.name, album %></td>
+    <td><%= link_to album.artist.name, album.artist %></td>
     <td><%= album.rating %></td>
   </tr>
 <% end %>

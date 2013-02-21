@@ -25,6 +25,45 @@
   <%= @album.label.name %>
 </p>
 
+<p>
+  <b>Genres:</b>
+  <% @album.genres.each do |g| %>
+    <%=link_to g.name, g %><br>
+  <% end %>
+</p>
 
+<%= form_tag add_genre_to_album_path do %>
+  <b>Add a <%= label_tag :genre_id %>:</b>
+  <%= hidden_field_tag :album_id, @album.id %>
+  <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, 'id', 'name') %>
+
+  <%= submit_tag "Add Genre" %>
+<% end %>
+
+<p>
+  <b>Producers:</b>
+  <% @album.producers.each do |g| %>
+    <%=link_to g.name, g %><br>
+  <% end %>
+</p>
+
+<%= form_tag add_producer_to_album_path do %>
+  <b>Add a <%= label_tag :producer_id %>:</b>
+  <%= hidden_field_tag :album_id, @album.id %>
+  <%= select_tag :producer_id, options_from_collection_for_select(Producer.all, 'id', 'name') %>
+  
+  <%= submit_tag "Add Producer" %>
+
+<% end %>
+
+<p>
+  <b>Song List:</><br/>
+  <ol>
+  <% @album.songs.each do |s| %>
+    <li><%=link_to s.name, s %></li>
+  <% end %>
+  </ol>
+</p>
+<br />
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>
