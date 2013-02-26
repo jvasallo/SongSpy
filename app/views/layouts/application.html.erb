@@ -8,13 +8,22 @@
 </head>
 <body>
 <img src="/assets/songspylogo.png" alt="Song Spy Logo" />
+<% if current_user %>
+  <p>Welcome back, <%= current_user.name %>.</p>
+<% end %>
 <p>
 <%= link_to 'Home', search_songs_path %> |
 <%= link_to 'Top 5 Albums', top_albums_path %> |
 <%= link_to 'Top Songs', top_songs_path %> |
 <%= link_to 'Find the Album!', search_albums_path %> |
 <%= link_to 'Browse Albums', albums_path %> | 
-<%= link_to 'Browse Songs', songs_path %> 
+<%= link_to 'Browse Songs', songs_path %> |
+<% if current_user %>
+<%= link_to 'Logout', logout_path %>
+<% else %>
+<%= link_to 'Register', new_identity_path %> |
+<%= link_to 'Login', login_path %>
+<% end %>
 </p>
 <br />
 

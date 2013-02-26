@@ -1,4 +1,7 @@
 Nxtbt::Application.routes.draw do
+  resources :users
+
+
   resources :meanings
 
 
@@ -28,6 +31,13 @@ Nxtbt::Application.routes.draw do
       post 'add_song_to'
     end
   end
+
+  resources :identities
+
+  match "/login" => "sessions#new", :as => :login
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/logout" => "sessions#destroy", :as => :logout
+  match "/auth/failure" => "sessions#failure"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
