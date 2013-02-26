@@ -1,4 +1,7 @@
 Nxtbt::Application.routes.draw do
+  resources :meanings
+
+
   resources :producers
 
   resources :songs do

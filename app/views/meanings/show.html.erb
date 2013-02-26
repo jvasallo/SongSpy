@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Rating:</b>
+  <%= @meaning.rating %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @meaning.content %>
+</p>
+
+<p>
+  <b>Song:</b>
+  <%= @meaning.song.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @meaning.user.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_meaning_path(@meaning) %> |
+<%= link_to 'Back', meanings_path %>
