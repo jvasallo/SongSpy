@@ -29,8 +29,48 @@
   <b>Genre:</b>
   <%= link_to @song.genre.name, @song.genre %>
 </p>
+<br />
+<% if @song.meanings.length > 0 %>
+  <h2>Song Meanings</h2>
+  <% @song.meanings.each do |meaning| %>
+    <p>
+    <b>Rating:</b> <%= meaning.rating %><br />
+    <b>Author:</b> <%= meaning.user.name %><br />
+    <i><%= meaning.content %></i>
+    <% if current_user and current_user.owns?(meaning) %>
+      <br />
+      <%= link_to 'Edit', edit_meaning_path(meaning) %> |
+      <%= link_to 'Destroy', meaning, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    <hr>
+    </p>
+  <% end %>
+<% end %>
 
+<br />
 
+<% if current_user %>
+  <h2>Share your thoughts..</h2>
+  <%= form_for(Meaning.new) do |f| %>
+    <div class="field">
+      <%= f.label :rating %><br />
+      <%= f.text_field :rating %>
+    </div>
+    <div class="field">
+      <%= f.label :content %><br />
+      <%= f.text_area :content %>
+    </div>
+    <%= f.hidden_field :song_id, :value => @song.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+    
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Destroy', @song, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <%= link_to 'Back', songs_path %>
+<% else %>
+<%= link_to 'Back', songs_path %>
+<% end %>

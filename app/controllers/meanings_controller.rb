@@ -49,8 +49,8 @@ class MeaningsController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      if @meaning.save
-        format.html { redirect_to @meaning, notice: 'Meaning was successfully created.' }
+      if current_user and @meaning.save
+        format.html { redirect_to @meaning.song, notice: 'Meaning was successfully created.' }
         format.json { render json: @meaning, status: :created, location: @meaning }
       else
         format.html { render action: "new" }
@@ -67,8 +67,8 @@ class MeaningsController < ApplicationController
     @users = User.all
 
     respond_to do |format|
-      if @meaning.update_attributes(params[:meaning])
-        format.html { redirect_to @meaning, notice: 'Meaning was successfully updated.' }
+      if current_user.owns?(@meaning) and @meaning.update_attributes(params[:meaning])
+        format.html { redirect_to @meaning.song, notice: 'Meaning was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -81,10 +81,12 @@ class MeaningsController < ApplicationController
   # DELETE /meanings/1.json
   def destroy
     @meaning = Meaning.find(params[:id])
-    @meaning.destroy
+    if current_user.owns?(@meaning)
+      @meaning.destroy
+    end
 
     respond_to do |format|
-      format.html { redirect_to meanings_url }
+      format.html { redirect_to @meaning.song }
       format.json { head :no_content }
     end
   end
