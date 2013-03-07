@@ -10,6 +10,7 @@
   <%= @producer.history %>
 </p>
 
-
+<% if current_user %>
 <%= link_to 'Edit', edit_producer_path(@producer) %> |
+<% end %> 
 <%= link_to 'Back', producers_path %>

@@ -3,6 +3,7 @@
 
 <table cellpadding="10">
   <tr>
+    <th> </th>
     <th>Album Name</th>
     <th>Artist</th>
     <th>Rating</th>
@@ -10,6 +11,7 @@
 
 <% @albums.each do |album| %>
   <tr align="right">
+    <td><%= display_photo album %></td>
     <td><%= link_to album.name, album %></td>
     <td><%= link_to album.artist.name, album.artist %></td>
     <td><%= album.rating %></td>

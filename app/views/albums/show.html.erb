@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <b>Album Art:</b>
+  <%= display_photo @album %>
+</p>
+
+<p>
   <b>Length:</b>
   <%= @album.length %>
 </p>
@@ -32,12 +37,14 @@
   <% end %>
 </p>
 
+<% if current_user %>
 <%= form_tag add_genre_to_album_path do %>
   <b>Add a <%= label_tag :genre_id %>:</b>
   <%= hidden_field_tag :album_id, @album.id %>
   <%= select_tag :genre_id, options_from_collection_for_select(Genre.all, 'id', 'name') %>
 
   <%= submit_tag "Add Genre" %>
+<% end %>
 <% end %>
 
 <p>
@@ -47,13 +54,14 @@
   <% end %>
 </p>
 
+<% if current_user %>
 <%= form_tag add_producer_to_album_path do %>
   <b>Add a <%= label_tag :producer_id %>:</b>
   <%= hidden_field_tag :album_id, @album.id %>
   <%= select_tag :producer_id, options_from_collection_for_select(Producer.all, 'id', 'name') %>
   
   <%= submit_tag "Add Producer" %>
-
+<% end %>
 <% end %>
 
 <p>
@@ -65,5 +73,8 @@
   </ol>
 </p>
 <br />
+<% if current_user %>
 <%= link_to 'Edit', edit_album_path(@album) %> |
+<% end %>
 <%= link_to 'Back', albums_path %>
+
