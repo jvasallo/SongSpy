@@ -1,5 +1,8 @@
 class Album < ActiveRecord::Base
-  attr_accessible :artist_id, :label_id, :length, :name, :release_date, :rating, :extension, :photo
+  attr_accessible :artist_id, :label_id, :length, :name, :release_date, :rating, :photo
+
+  after_save :store_photo
+  PHOTO_STORE = File.join Rails.root, 'public', 'photo_store'
 
   belongs_to :label
   belongs_to :artist 
@@ -35,9 +38,6 @@ class Album < ActiveRecord::Base
   #                          Begin Photo Def's                               #
   #                                                                          #
   ############################################################################
-
-  after_save :store_photo
-  PHOTO_STORE = File.join Rails.root, 'public', 'photo_store'
 
   def photo=(file_data)
     unless file_data.blank?
